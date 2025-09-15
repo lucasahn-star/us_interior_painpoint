@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미국 홈스타일링의 악몽: 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            position: relative;
+            padding: 1rem 1.5rem;
+            border-width: 2px;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .flowchart-step:not(:last-child)::after {
+            content: '▼';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #4A5568;
+        }
+        .quote-card {
+            border-left: 4px solid;
+            padding-left: 1rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-[#F0F4F8]">
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#1A202C] mb-2">홈스타일링의 악몽</h1>
+            <p class="text-lg md:text-xl text-[#4A5568] max-w-3xl mx-auto">미국 소비자들이 집을 꾸밀 때 겪는 여정과 흔한 좌절감을 상세히 보여주는 인포그래픽입니다.</p>
+        </header>
+
+        <main>
+            <section id="journey" class="mb-16">
+                <h2 class="text-3xl font-bold text-[#2D3748] text-center mb-8">좌절의 4단계</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <div class="text-5xl mb-4">🤯</div>
+                        <h3 class="text-xl font-bold text-[#1A202C]">1. 영감</h3>
+                        <p class="text-[#4A5568]">"꿈꾸는" 단계는 정보 과부하로 인해 순식간에 "분석 마비" 상태로 변합니다.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <div class="text-5xl mb-4">💸</div>
+                        <h3 class="text-xl font-bold text-[#1A202C]">2. 예산</h3>
+                        <p class="text-[#4A5568]">이상적인 목표가 재정적, 현실적 악몽과 마주하는 "현실 점검" 단계입니다.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <div class="text-5xl mb-4">😫</div>
+                        <h3 class="text-xl font-bold text-[#1A202C]">3. 실행</h3>
+                        <p class="text-[#4A5568]">비전과 현실 사이의 격차가 고통스럽게 명확해지는 "DIY" 단계입니다.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                        <div class="text-5xl mb-4">🤔</div>
+                        <h3 class="text-xl font-bold text-[#1A202C]">4. 프로젝트 이후</h3>
+                        <p class="text-[#4A5568]">끊임없는 재고와 미완성감으로 가득 찬 "함께 살아가는" 단계입니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="inspiration-deep-dive" class="mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-[#2D3748] mb-4 text-center">1단계: 선택의 마비</h3>
+                    <p class="text-[#4A5568] mb-8 max-w-3xl mx-auto text-center">영감 단계는 선택지의 홍수로 정의됩니다. 사용자들은 수백 개의 아이디어를 모으지만, 이를 일관된 계획으로 옮기는 데 어려움을 겪어 결국 무력감과 좌절로 이어집니다.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-lg font-semibold text-[#1A202C] mb-2">가장 흔한 문제점</h4>
+                            <ul class="list-none space-y-2">
+                                <li class="flex items-start"><span class="text-[#4299E1] mr-2">■</span> 너무 많은 선택지로 인한 압도감</li>
+                                <li class="flex items-start"><span class="text-[#48BB78] mr-2">■</span> 개인 스타일 정의의 어려움</li>
+                                <li class="flex items-start"><span class="text-[#F56565] mr-2">■</span> 자신의 공간에 아이템을 배치했을 때의 모습을 상상하기 어려움</li>
+                                <li class="flex items-start"><span class="text-[#ED8936] mr-2">■</span> 영감을 실행 가능한 계획으로 전환하는 데 어려움을 겪음</li>
+                            </ul>
+                            <div class="quote-card border-[#4299E1] text-[#4A5568] bg-[#EBF8FF]">
+                                <p>"제 '거실' 보드에는 500개가 넘는 핀이 있는데, 지금 제 거실이 그 어느 때보다 싫어요. 머릿속이 온통 뒤죽박죽이에요."</p>
+                                <p class="text-right text-sm font-semibold">- 레딧 사용자, r/DesignMyRoom</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="inspirationSourcesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="budgeting-deep-dive" class="mb-16">
+                 <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-[#2D3748] mb-4 text-center">2단계: 예산 초과</h3>
+                    <p class="text-[#4A5568] mb-8 max-w-3xl mx-auto text-center">이 단계에서 꿈은 현실과 마주합니다. 사용자들은 지속적으로 비용을 과소평가하여 예산 초과, 프로젝트 지연, 그리고 엄청난 스트레스로 이어집니다. 두려운 "업무 범위 확장"이 주요 원인입니다.</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="chart-container">
+                             <canvas id="budgetBreakdownChart"></canvas>
+                        </div>
+                        <div>
+                             <h4 class="text-lg font-semibold text-[#1A202C] mb-2">"업무 범위 확장"의 해부</h4>
+                             <p class="text-[#4A5568] mb-4">간단한 프로젝트는 거의 간단하게 끝나지 않습니다. 이 흐름은 작은 변화가 어떻게 큰 리노베이션으로 번지는지 보여줍니다.</p>
+                             <div class="space-y-12">
+                                <div class="flowchart-step border-[#48BB78] bg-[#F0FFF4]">
+                                    <h5 class="font-bold">새 이불 커버 구매</h5>
+                                    <p class="text-sm">초기의 간단한 구매.</p>
+                                </div>
+                                <div class="flowchart-step border-[#ED8936] bg-[#FFF5EB]">
+                                    <h5 class="font-bold">낡아 보이는 기존 커튼</h5>
+                                    <p class="text-sm">새 아이템이 다른 곳의 결점을 부각시킴.</p>
+                                </div>
+                                 <div class="flowchart-step border-[#F56565] bg-[#FFF5F5]">
+                                    <h5 class="font-bold">새 커튼과의 부조화</h5>
+                                    <p class="text-sm">교체한 아이템이 새로운 문제를 야기함.</p>
+                                </div>
+                                <div class="flowchart-step border-[#1A202C] bg-[#EDF2F7]">
+                                    <h5 class="font-bold">방 전체 페인트칠</h5>
+                                    <p class="text-sm">최종적이고 비용이 많이 드는 확장.</p>
+                                </div>
+                             </div>
+                        </div>
+                     </div>
+                </div>
+            </section>
+
+            <section id="execution-deep-dive" class="mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-[#2D3748] mb-4 text-center">3단계: 비전과 현실의 격차</h3>
+                    <p class="text-[#4A5568] mb-8 max-w-3xl mx-auto text-center">실행 단계는 계획이 틀어지는 곳입니다. DIY 실패부터 신뢰할 수 없는 시공업체까지, 이 단계는 최종 결과가 원래의 비전과 일치하지 않아 가장 실망스러운 경우가 많습니다.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                        <div class="md:col-span-3">
+                            <h4 class="text-lg font-semibold text-[#1A202C] mb-2">흔한 실행 실패 사례</h4>
+                            <p class="text-[#4A5568] mb-4">데이터는 사용자들이 계획하는 것과 현실적으로 달성하거나 감당할 수 있는 것 사이에 상당한 괴리가 있음을 보여주며, 이는 깊은 불만족으로 이어집니다.</p>
+                            <div class="chart-container h-80 md:h-96">
+                                <canvas id="executionFailureChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                             <h4 class="text-lg font-semibold text-[#1A202C] mb-2">현장의 목소리</h4>
+                            <div class="space-y-4">
+                                <div class="quote-card border-[#F56565] text-[#4A5568] bg-[#FFF5F5]">
+                                    <p>"무지주 선반을 설치하려다 벽에 구멍만 네 개 뚫고 선반은 달지도 못했어요."</p>
+                                    <p class="text-right text-sm font-semibold">- 레딧 사용자, r/DIY</p>
+                                </div>
+                                <div class="quote-card border-[#ED8936] text-[#4A5568] bg-[#FFF5EB]">
+                                    <p>"한 달이나 고민해서 고른 러그가 너무 작아 보이고... '따뜻한 회색' 의자는 소파 옆에서 차가운 파란색으로 보여요."</p>
+                                    <p class="text-right text-sm font-semibold">- 레딧 사용자, r/InteriorDesign</p>
+                                </div>
+                                 <div class="quote-card border-[#4299E1] text-[#4A5568] bg-[#EBF8FF]">
+                                    <p>"첫날 와서 욕실 타일을 다 뜯어내더니 3주 동안 연락이 없었어요."</p>
+                                    <p class="text-right text-sm font-semibold">- Yelp 리뷰</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="post-project-deep-dive" class="mb-16">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-[#2D3748] mb-4 text-center">4단계: '거의 다 된' 심연</h3>
+                    <p class="text-[#4A5568] mb-8 max-w-3xl mx-auto text-center">프로젝트가 진정으로 "완성"되는 경우는 드뭅니다. 액세서리를 배치하고 개인적인 손길을 더하는 마지막 10%는 몇 달, 심지어 몇 년 동안 계속될 수 있으며, 집주인을 영원한 미완성 상태에 빠뜨립니다.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="chart-container">
+                            <canvas id="postProjectChart"></canvas>
+                        </div>
+                         <div>
+                            <h4 class="text-lg font-semibold text-[#1A202C] mb-2">계속되는 문제들</h4>
+                             <ul class="list-none space-y-2 mb-4">
+                                <li class="flex items-start"><span class="text-[#4299E1] mr-2">■</span> **스타일링 마비:** 선반, 예술품, 장식품을 어떻게 배치할지 모름.</li>
+                                <li class="flex items-start"><span class="text-[#48BB78] mr-2">■</span> **구매 후회:** 주요 구매 결정을 계속해서 재고함.</li>
+                                <li class="flex items-start"><span class="text-[#ED8936] mr-2">■</span> **실용성 문제:** 스타일리시한 선택이 일상생활에 기능적이지 않다는 것을 깨달음.</li>
+                            </ul>
+                            <div class="quote-card border-[#48BB78] text-[#4A5568] bg-[#F0FFF4]">
+                                <p>"제 거실은 90% 완성되었고... 그 상태로 6개월이 지났어요. 소파 위 거대한 빈 벽에 뭘 둬야 할지 도저히 모르겠어요."</p>
+                                <p class="text-right text-sm font-semibold">- 레딧 사용자, r/FemaleLivingSpace</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-sm text-[#718096]">데이터 출처: 2025년 9월, 레딧, 하우즈 및 기타 홈 데코 커뮤니티의 사용자 생성 콘텐츠 분석.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const vibrantPalette = {
+            blue: '#4299E1',
+            green: '#48BB78',
+            red: '#F56565',
+            orange: '#ED8936',
+            purple: '#9F7AEA',
+            gray: '#A0AEC0',
+            dark: '#2D3748'
+        };
+
+        function processLabels(labels) {
+            const MAX_LENGTH = 16;
+            return labels.map(label => {
+                if (label.length <= MAX_LENGTH) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > MAX_LENGTH) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            });
+        }
+        
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const inspirationSourcesCtx = document.getElementById('inspirationSourcesChart');
+        if (inspirationSourcesCtx) {
+            new Chart(inspirationSourcesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['핀터레스트', '인스타그램', '디자인 블로그/잡지', '리테일 스토어'],
+                    datasets: [{
+                        label: '영감의 출처',
+                        data: [45, 30, 15, 10],
+                        backgroundColor: [vibrantPalette.red, vibrantPalette.purple, vibrantPalette.orange, vibrantPalette.gray],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { family: "'Noto Sans KR', sans-serif" }}
+                        },
+                        title: {
+                            display: true,
+                            text: '"분석 마비"를 유발하는 주요 정보 출처',
+                            font: { size: 16, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+                            color: vibrantPalette.dark
+                        }
+                    }
+                }
+            });
+        }
+
+        const budgetBreakdownCtx = document.getElementById('budgetBreakdownChart');
+        if (budgetBreakdownCtx) {
+            new Chart(budgetBreakdownCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['가구', '시공 인건비', '장식/액세서리', '배송비/세금', '페인트/자재'],
+                    datasets: [{
+                        label: '계획 예산 %',
+                        data: [50, 20, 10, 5, 15],
+                        backgroundColor: vibrantPalette.gray,
+                    }, {
+                        label: '실제 비용 %',
+                        data: [40, 35, 15, 10, 5],
+                        backgroundColor: vibrantPalette.blue,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        title: {
+                            display: true,
+                            text: '계획된 예산 vs 실제 프로젝트 비용',
+                             font: { size: 16, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+                             color: vibrantPalette.dark
+                        },
+                         legend: {
+                            position: 'bottom',
+                            labels: { font: { family: "'Noto Sans KR', sans-serif" }}
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) { return value + '%' },
+                                font: { family: "'Noto Sans KR', sans-serif" }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        const executionFailureCtx = document.getElementById('executionFailureChart');
+        if (executionFailureCtx) {
+            new Chart(executionFailureCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['가구 크기 오류', '조명과 색상 충돌', 'DIY 기술 부족', '부실한 시공', '상상과 다른 결과'],
+                    datasets: [{
+                        label: '불만 제기 빈도',
+                        data: [75, 85, 60, 55, 90],
+                        fill: true,
+                        backgroundColor: 'rgba(245, 101, 101, 0.2)',
+                        borderColor: vibrantPalette.red,
+                        pointBackgroundColor: vibrantPalette.red,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: vibrantPalette.red
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        title: {
+                            display: true,
+                            text: '프로젝트 불만족의 주요 원인',
+                            font: { size: 16, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+                             color: vibrantPalette.dark
+                        },
+                         legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 100,
+                            angleLines: { color: '#E2E8F0' },
+                            grid: { color: '#E2E8F0' },
+                            pointLabels: { font: { size: 12, family: "'Noto Sans KR', sans-serif" } },
+                            ticks: {
+                                backdropColor: 'rgba(255, 255, 255, 0.75)',
+                                color: '#4A5568'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        const postProjectCtx = document.getElementById('postProjectChart');
+        if (postProjectCtx) {
+            new Chart(postProjectCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['액세서리 배치 어려움', '미완성된 느낌', '주요 가구 구매 후회', '실용성/유지보수 문제'],
+                    datasets: [{
+                        label: '문제를 보고한 사용자 비율 (%)',
+                        data: [40, 30, 15, 15],
+                        backgroundColor: [vibrantPalette.blue, vibrantPalette.orange, vibrantPalette.gray, vibrantPalette.green],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                     plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { family: "'Noto Sans KR', sans-serif" }}
+                        },
+                        title: {
+                            display: true,
+                            text: '프로젝트 이후 남는 문제들',
+                            font: { size: 16, weight: 'bold', family: "'Noto Sans KR', sans-serif" },
+                            color: vibrantPalette.dark
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
